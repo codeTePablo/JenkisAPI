@@ -2,3 +2,12 @@
 venv/
 
 commands.txt
+
+# ignorar variables de entorno
+variables.tf
+
+# ignorar .terraform 
+.terraform/
+# ignorar archivos de estado de terraform
+*.tfstate
+*.terraform.lock.hcl
