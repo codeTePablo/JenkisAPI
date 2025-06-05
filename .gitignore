@@ -11,5 +11,4 @@ commands.txt
 *.terraform.lock.hcl
 
 # ignorar las llaves de nginx
-nginx-server.key.pub
 nginx-server.key
