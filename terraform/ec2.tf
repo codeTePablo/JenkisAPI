@@ -5,17 +5,18 @@ resource "aws_instance" "nginx-server" {
 
   user_data = <<-EOF
               #!/bin/bash
-              apt-get update -y
-              apt-get install -y docker.io git
-              systemctl start docker
-              systemctl enable docker
+              sudo apt-get update -y
+              sudo apt-get install -y docker.io git
+              sudo systemctl start docker
+              sudo systemctl enable docker
 
               # Clona el repositorio
-              git clone https://github.com/codeTePablo/JenkisAPI.git
+              sudo git clone https://github.com/codeTePablo/JenkisAPI.git
 
               # Construye y corre el contenedor
-              docker build -t mi-api .
-              docker run -d -p 5000:5000 --name apiRest-api mi-api
+              cd JenkisAPI
+              sudo docker build -t mi-api .
+              sudo docker run -d -p 5000:5000 --name apiRest-api mi-api
               EOF
 
   key_name = aws_key_pair.nginx-server-ssh.key_name # conecta la key creada
