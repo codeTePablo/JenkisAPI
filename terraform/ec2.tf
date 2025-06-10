@@ -11,12 +11,11 @@ resource "aws_instance" "nginx-server" {
               systemctl enable docker
 
               # Clona el repositorio
-              git clone https://github.com/codeTePablo/JenkisAPI.git /app
+              git clone https://github.com/codeTePablo/JenkisAPI.git
 
               # Construye y corre el contenedor
-              cd /app
               docker build -t mi-api .
-              docker run -d -p 5000:5000 --name contenedor-api mi-api
+              docker run -d -p 5000:5000 --name apiRest-api mi-api
               EOF
 
   key_name = aws_key_pair.nginx-server-ssh.key_name # conecta la key creada
